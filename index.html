@@ -2,9 +2,75 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sports Store - Trang Chủ</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f8f9fa; color: #333; }
+        
+        /* Menu điều hướng */
+        nav { background-color: #1a1a1a; display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; color: #fff; }
+        nav .logo { font-size: 24px; font-weight: bold; color: #ff4757; }
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav ul li a { color: #fff; text-decoration: none; font-weight: 500; transition: 0.3s; }
+        nav ul li a:hover { color: #ff4757; }
+
+        /* Banner chính */
+        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hinhanh/banner.jpg') center/cover no-repeat; height: 350px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #fff; padding: 0 20px; }
+        .hero h1 { font-size: 40px; margin-bottom: 10px; }
+        .hero p { font-size: 18px; margin-bottom: 20px; }
+        .btn-shop { background-color: #ff4757; color: #fff; padding: 10px 25px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; text-decoration: none; transition: 0.3s; }
+        .btn-shop:hover { background-color: #e84118; }
+
+        /* Phần giới thiệu */
+        .features { display: flex; justify-content: space-around; padding: 40px 20px; background: #fff; text-align: center; }
+        .feature-box { max-width: 300px; padding: 20px; }
+        .feature-box h3 { color: #1a1a1a; margin-bottom: 10px; }
+        
+        /* Chân trang */
+        footer { background: #1a1a1a; color: #fff; text-align: center; padding: 20px; margin-top: 40px; font-size: 14px; }
+    </style>
 </head>
 <body>
-    <h1>Chào mừng đến với Cửa hàng Đồ Thể Thao Sports Store</h1>
+
+    <!-- Menu -->
+    <nav>
+        <div class="logo">Sports Store</div>
+        <ul>
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="sport-men.html">Quần Áo</a></li>
+            <li><a href="sport-equipment.html">Dụng Cụ</a></li>
+            <li><a href="contact.html">Liên Hệ</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner -->
+    <div class="hero">
+        <h1>Bứt Phá Giới Hạn Cùng Sports Store</h1>
+        <p>Chuyên cung cấp quần áo và dụng cụ thể thao chính hãng, chất lượng cao.</p>
+        <a href="sport-men.html" class="btn-shop">Khám Phá Ngay</a>
+    </div>
+
+    <!-- Giới thiệu dịch vụ -->
+    <section class="features">
+        <div class="feature-box">
+            <h3>Chính Hãng 100%</h3>
+            <p>Cam kết sản phẩm chất lượng từ các thương hiệu hàng đầu thế giới.</p>
+        </div>
+        <div class="feature-box">
+            <h3>Giao Hàng Nhanh</h3>
+            <p>Vận chuyển toàn quốc nhanh chóng, hỗ trợ kiểm tra hàng trước khi thanh toán.</p>
+        </div>
+        <div class="feature-box">
+            <h3>Hỗ Trợ 24/7</h3>
+            <p>Đội ngũ tư vấn luôn sẵn sàng giải đáp mọi thắc mắc của bạn.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Sports Store. Đã đăng ký bản quyền.</p>
+    </footer>
+
 </body>
 </html>
