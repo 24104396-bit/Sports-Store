@@ -1,1 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - Cửa Hàng Thể Thao</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #1e293b;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #0f172a;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #2563eb;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .content-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .info-section, .form-section {
+            flex: 1;
+            min-width: 300px;
+        }
+        h2 {
+            color: #2563eb;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1d4ed8;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #1e293b;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
 
+    <header>
+        <h1>SPORTS STORE</h1>
+        <p>Cửa hàng dụng cụ và thời trang thể thao chính hãng</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="sport-men.html">Đồ nam</a>
+        <a href="sport-equipment.html">Dụng cụ</a>
+        <a href="contact.html">Liên hệ</a>
+    </nav>
+
+    <div class="container">
+        <h2>Liên Hệ Với Chúng Tôi</h2>
+        <div class="content-grid">
+            <div class="info-section">
+                <h3>Thông Tin Cửa Hàng</h3>
+                <p><strong>Địa chỉ:</strong> 123 Đường Thể Thao, Quận Cầu Giấy, Hà Nội</p>
+                <p><strong>Điện thoại:</strong> 0934.924.180</p>
+                <p><strong>Email:</strong> support@sportsstore.com</p>
+                <p><strong>Giờ mở cửa:</strong> 08:00 - 22:00 (Tất cả các ngày trong tuần)</p>
+            </div>
+
+            <div class="form-section">
+                <h3>Gửi Phản Hồi</h3>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="fullname">Họ và tên:</label>
+                        <input type="text" id="fullname" name="fullname" requiredPlaceholder="Nguyễn Văn A" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" requiredPlaceholder="email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Nội dung tin nhắn:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit">Gửi tin nhắn</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Sports Store - Bài tập nhóm Xây dựng ứng dụng Web</p>
+    </footer>
+
+</body>
+</html>
