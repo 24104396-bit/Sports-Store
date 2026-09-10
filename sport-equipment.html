@@ -1,1 +1,102 @@
 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Store - Dụng Cụ Thể Thao Cao Cấp</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        :root {
+            --luxury-navy: #0f172a;
+            --luxury-gold: #c59b27;
+            --luxury-gold-hover: #d4af37;
+            --bg-light: #f8fafc;
+            --text-main: #334155;
+        }
+        body { background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; }
+
+        /* Header & Navigation */
+        header { background-color: var(--luxury-navy); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .logo { font-size: 26px; font-weight: bold; color: #fff; letter-spacing: 1.5px; }
+        .logo span { color: var(--luxury-gold); }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav ul li a { color: #cbd5e1; text-decoration: none; font-weight: 500; font-size: 16px; transition: color 0.3s ease; }
+        nav ul li a:hover, nav ul li a.active { color: var(--luxury-gold); }
+
+        /* Page Banner */
+        .page-header { background: var(--luxury-navy); color: #fff; text-align: center; padding: 60px 20px; border-bottom: 3px solid var(--luxury-gold); }
+        .page-header h1 { font-size: 38px; margin-bottom: 10px; letter-spacing: 2px; }
+        .page-header p { color: #94a3b8; font-size: 16px; }
+
+        /* Product Grid Section */
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .product-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #e2e8f0; transition: transform 0.3s; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+        .product-img { height: 200px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 600; color: #475569; }
+        .product-info { padding: 20px; text-align: center; }
+        .product-info h3 { font-size: 18px; color: var(--luxury-navy); margin-bottom: 10px; }
+        .product-info .price { font-size: 16px; color: var(--luxury-gold); font-weight: bold; margin-bottom: 15px; }
+        .btn-buy { background: var(--luxury-navy); color: #fff; padding: 10px 20px; border-radius: 4px; border: none; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.3s; }
+        .btn-buy:hover { background: var(--luxury-gold); }
+
+        /* Footer */
+        footer { background: var(--luxury-navy); color: #94a3b8; text-align: center; padding: 35px 20px; margin-top: 60px; font-size: 14px; border-top: 1px solid #1e293b; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">SPORTS<span>STORE</span></div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="sport-men.html">Quần Áo</a></li>
+                <li><a href="sport-equipment.html" class="active">Dụng Cụ</a></li>
+                <li><a href="contact.html">Liên Hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <h1>Dụng Cụ & Thiết Bị Thể Thao</h1>
+        <p>Thiết bị chuẩn thi đấu chuyên nghiệp, bền bỉ và hỗ trợ tối đa hiệu suất luyện tập.</p>
+    </div>
+
+    <div class="container">
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-img">🏸 Vợt Cầu Lông Carbon</div>
+                <div class="product-info">
+                    <h3>Vợt Cầu Lông Chuyên Nghiệp</h3>
+                    <div class="price">1.250.000 đ</div>
+                    <button class="btn-buy">Chọn Mua</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">⚽ Bóng Đá Thi Đấu</div>
+                <div class="product-info">
+                    <h3>Bóng Đá Đạt Chuẩn FIFA</h3>
+                    <div class="price">450.000 đ</div>
+                    <button class="btn-buy">Chọn Mua</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img">🏋️‍♂️ Bộ Tạ Tay Lắp Ráp</div>
+                <div class="product-info">
+                    <h3>Bộ Tạ Tay Đa Năng 20kg</h3>
+                    <div class="price">890.000 đ</div>
+                    <button class="btn-buy">Chọn Mua</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Sports Store. Đã đăng ký bản quyền. Dự án bài tập nhóm cao cấp.</p>
+    </footer>
+
+</body>
+</html>
