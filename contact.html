@@ -1,147 +1,256 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liên Hệ - Cửa Hàng Thể Thao</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            background-color: #f4f4f9;
-            color: #333;
-            line-height: 1.6;
-        }
-        header {
-            background-color: #1e293b;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        nav {
-            background-color: #0f172a;
-            display: flex;
-            justify-content: center;
-            list-style: none;
-        }
-        nav a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            background-color: #2563eb;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .content-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .info-section, .form-section {
-            flex: 1;
-            min-width: 300px;
-        }
-        h2 {
-            color: #2563eb;
-            margin-bottom: 15px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #2563eb;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #1d4ed8;
-        }
-        footer {
-            text-align: center;
-            padding: 15px;
-            background-color: #1e293b;
-            color: white;
-            margin-top: 30px;
-        }
-    </style>
-</head>
-<body>
+<!-- CSS bổ sung cho phần Thông tin liên hệ & Form -->
+<style>
+    :root {
+        --primary-color: #2563eb;
+        --primary-dark: #1d4ed8;
+        --bg-light: #f8fafc;
+        --text-dark: #1e293b;
+        --text-muted: #64748b;
+        --border-color: #e2e8f0;
+    }
 
-    <header>
-        <h1>SPORTS STORE</h1>
-        <p>Cửa hàng dụng cụ và thời trang thể thao chính hãng</p>
-    </header>
+    .contact-container {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
 
-    <nav>
-        <a href="index.html">Trang chủ</a>
-        <a href="sport-men.html">Đồ nam</a>
-        <a href="sport-equipment.html">Dụng cụ</a>
-        <a href="contact.html">Liên hệ</a>
-    </nav>
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 30px;
+    }
 
-    <div class="container">
-        <h2>Liên Hệ Với Chúng Tôi</h2>
-        <div class="content-grid">
-            <div class="info-section">
-                <h3>Thông Tin Cửa Hàng</h3>
-                <p><strong>Địa chỉ:</strong> phenikaa uni</p>
-                <p><strong>Điện thoại:</strong> 0934.924.180</p>
-                <p><strong>Email:</strong> support@sportsstore.com</p>
-                <p><strong>Giờ mở cửa:</strong> 08:00 - 22:00 (Tất cả các ngày trong tuần)</p>
-            </div>
+    @media (max-width: 768px) {
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+    }
 
-            <div class="form-section">
-                <h3>Gửi Phản Hồi</h3>
-                <form action="#" method="post">
-                    <div class="form-group">
-                        <label for="fullname">Họ và tên:</label>
-                        <input type="text" id="fullname" name="fullname" requiredPlaceholder="Nguyễn Văn A" required>
+    /* Thẻ thông tin bên trái */
+    .info-card, .form-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        border: 1px solid var(--border-color);
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 24px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--primary-color);
+        border-radius: 2px;
+    }
+
+    /* Danh sách thông tin */
+    .info-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .info-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px;
+        border-radius: 12px;
+        background: var(--bg-light);
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+    }
+
+    .info-item:hover {
+        background: #ffffff;
+        border-color: var(--primary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+    }
+
+    .icon-box {
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
+        background: rgba(37, 99, 235, 0.1);
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        flex-shrink: 0;
+    }
+
+    .text-box h4 {
+        margin: 0 0 4px 0;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .text-box p {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-dark);
+    }
+
+    .text-box a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+    .text-box a:hover {
+        color: var(--primary-dark);
+        text-decoration: underline;
+    }
+
+    /* Style cho Form */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 8px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 0.95rem;
+        background-color: var(--bg-light);
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+    }
+
+    .form-control:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        background-color: #ffffff;
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    }
+
+    .btn-submit {
+        width: 100%;
+        padding: 14px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-submit:hover {
+        background-color: var(--primary-dark);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+</style>
+
+<!-- Nội dung HTML -->
+<div class="contact-container">
+    <div class="contact-grid">
+        
+        <!-- Cột 1: Thông tin liên hệ -->
+        <div class="info-card">
+            <h3 class="section-title">Thông Tin Liên Hệ</h3>
+            <div class="info-list">
+                
+                <div class="info-item">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-location-dot"></i>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" requiredPlaceholder="24103498@st.phenikaa-uni.edu.vn" required>
+                    <div class="text-box">
+                        <h4>Địa chỉ cửa hàng</h4>
+                        <p>Phenikaa University, Hà Đông, Hà Nội</p>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Nội dung tin nhắn:</label>
-                        <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-phone"></i>
                     </div>
-                    <button type="submit">Gửi tin nhắn</button>
-                </form>
+                    <div class="text-box">
+                        <h4>Hotline tư vấn</h4>
+                        <p><a href="tel:0934924180">0934.924.180</a></p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="text-box">
+                        <h4>Email hỗ trợ</h4>
+                        <p><a href="mailto:support@sportsstore.com">support@sportsstore.com</a></p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div class="text-box">
+                        <h4>Giờ phục vụ</h4>
+                        <p>08:00 - 22:00 (Hàng ngày)</p>
+                    </div>
+                </div>
+
             </div>
         </div>
+
+        <!-- Cột 2: Form gửi phản hồi -->
+        <div class="form-card">
+            <h3 class="section-title">Gửi Phản Hồi</h3>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="fullname">Họ và tên</label>
+                    <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Nguyễn Văn A" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Địa chỉ Email</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="24103498@st.phenikaa-uni.edu.vn" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Nội dung tin nhắn</label>
+                    <textarea id="message" name="message" rows="4" class="form-control" placeholder="Nhập lời nhắn của bạn tại đây..." required></textarea>
+                </div>
+                
+                <button type="submit" class="btn-submit">
+                    <span>Gửi Tin Nhắn</span>
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+
     </div>
-
-    <footer>
-        <p>&copy; 2026 Sports Store - Bài tập nhóm Xây dựng ứng dụng Web</p>
-    </footer>
-
-</body>
-</html>
+</div>
