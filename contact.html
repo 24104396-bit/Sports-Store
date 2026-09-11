@@ -1,256 +1,228 @@
-<!-- CSS bổ sung cho phần Thông tin liên hệ & Form -->
-<style>
-    :root {
-        --primary-color: #2563eb;
-        --primary-dark: #1d4ed8;
-        --bg-light: #f8fafc;
-        --text-dark: #1e293b;
-        --text-muted: #64748b;
-        --border-color: #e2e8f0;
-    }
-
-    .contact-container {
-        max-width: 1100px;
-        margin: 40px auto;
-        padding: 0 20px;
-    }
-
-    .contact-grid {
-        display: grid;
-        grid-template-columns: 1fr 1.2fr;
-        gap: 30px;
-    }
-
-    @media (max-width: 768px) {
-        .contact-grid {
-            grid-template-columns: 1fr;
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Store - Liên Hệ</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        :root {
+            --luxury-navy: #0f172a;
+            --luxury-gold: #c59b27;
+            --luxury-gold-hover: #d4af37;
+            --bg-light: #f8fafc;
+            --text-main: #334155;
         }
-    }
+        body { background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; }
 
-    /* Thẻ thông tin bên trái */
-    .info-card, .form-card {
-        background: #ffffff;
-        border-radius: 16px;
-        padding: 32px;
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
-        border: 1px solid var(--border-color);
-    }
+        /* Header & Navigation */
+        header { background-color: var(--luxury-navy); position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .logo { font-size: 26px; font-weight: bold; color: #fff; letter-spacing: 1.5px; }
+        .logo span { color: var(--luxury-gold); }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav ul li a { color: #cbd5e1; text-decoration: none; font-weight: 500; font-size: 16px; transition: color 0.3s ease; }
+        nav ul li a:hover, nav ul li a.active { color: var(--luxury-gold); }
 
-    .section-title {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--text-dark);
-        margin-bottom: 24px;
-        position: relative;
-        padding-bottom: 10px;
-    }
+        /* Page Banner */
+        .page-header { background: var(--luxury-navy); color: #fff; text-align: center; padding: 60px 20px; border-bottom: 3px solid var(--luxury-gold); }
+        .page-header h1 { font-size: 38px; margin-bottom: 10px; letter-spacing: 2px; }
+        .page-header p { color: #94a3b8; font-size: 16px; }
 
-    .section-title::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 50px;
-        height: 3px;
-        background: var(--primary-color);
-        border-radius: 2px;
-    }
+        /* Contact Section */
+        .contact-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
 
-    /* Danh sách thông tin */
-    .info-list {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
+        .contact-box {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+        }
 
-    .info-item {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        padding: 16px;
-        border-radius: 12px;
-        background: var(--bg-light);
-        transition: all 0.3s ease;
-        border: 1px solid transparent;
-    }
+        .contact-box h2 {
+            font-size: 24px;
+            color: var(--luxury-navy);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--luxury-gold);
+        }
 
-    .info-item:hover {
-        background: #ffffff;
-        border-color: var(--primary-color);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
-    }
+        /* Info Items */
+        .info-item {
+            display: flex;
+            align-items: center;
+            background: #f8fafc;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #e2e8f0;
+        }
+        .info-icon {
+            font-size: 22px;
+            margin-right: 15px;
+        }
+        .info-content h4 {
+            font-size: 14px;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+        .info-content p, .info-content a {
+            font-size: 15px;
+            color: var(--luxury-navy);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .info-content a:hover {
+            color: var(--luxury-gold);
+        }
 
-    .icon-box {
-        width: 48px;
-        height: 48px;
-        border-radius: 10px;
-        background: rgba(37, 99, 235, 0.1);
-        color: var(--primary-color);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.25rem;
-        flex-shrink: 0;
-    }
+        /* Form Controls */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--luxury-navy);
+            margin-bottom: 8px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+            color: var(--text-main);
+            background: #fff;
+            transition: all 0.3s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--luxury-gold);
+            box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.15);
+        }
+        textarea.form-control {
+            resize: vertical;
+            height: 120px;
+        }
 
-    .text-box h4 {
-        margin: 0 0 4px 0;
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
+        /* Submit Button */
+        .btn-submit {
+            background: var(--luxury-navy);
+            color: #fff;
+            width: 100%;
+            padding: 14px;
+            border-radius: 6px;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .btn-submit:hover {
+            background: var(--luxury-gold);
+            transform: translateY(-2px);
+        }
 
-    .text-box p {
-        margin: 0;
-        font-size: 1rem;
-        font-weight: 600;
-        color: var(--text-dark);
-    }
+        /* Footer */
+        footer { background: var(--luxury-navy); color: #94a3b8; text-align: center; padding: 35px 20px; margin-top: 60px; font-size: 14px; border-top: 1px solid #1e293b; }
+    </style>
+</head>
+<body>
 
-    .text-box a {
-        color: var(--primary-color);
-        text-decoration: none;
-        transition: color 0.2s;
-    }
+    <header>
+        <nav>
+            <div class="logo">SPORTS<span>STORE</span></div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="sport-men.html">Quần Áo</a></li>
+                <li><a href="sport-equipment.html">Dụng Cụ</a></li>
+                <li><a href="contact.html" class="active">Liên Hệ</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    .text-box a:hover {
-        color: var(--primary-dark);
-        text-decoration: underline;
-    }
+    <div class="page-header">
+        <h1>Kết Nối Với Chúng Tôi</h1>
+        <p>Chúng tôi luôn sẵn sàng lắng nghe mọi ý kiến đóng góp và hỗ trợ bạn tận tình.</p>
+    </div>
 
-    /* Style cho Form */
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    .form-group label {
-        display: block;
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--text-dark);
-        margin-bottom: 8px;
-    }
-
-    .form-control {
-        width: 100%;
-        padding: 12px 16px;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        font-size: 0.95rem;
-        background-color: var(--bg-light);
-        transition: all 0.3s ease;
-        box-sizing: border-box;
-    }
-
-    .form-control:focus {
-        outline: none;
-        border-color: var(--primary-color);
-        background-color: #ffffff;
-        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
-    }
-
-    .btn-submit {
-        width: 100%;
-        padding: 14px;
-        background-color: var(--primary-color);
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        transition: all 0.3s ease;
-    }
-
-    .btn-submit:hover {
-        background-color: var(--primary-dark);
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
-    }
-</style>
-
-<!-- Nội dung HTML -->
-<div class="contact-container">
-    <div class="contact-grid">
-        
-        <!-- Cột 1: Thông tin liên hệ -->
-        <div class="info-card">
-            <h3 class="section-title">Thông Tin Liên Hệ</h3>
-            <div class="info-list">
-                
-                <div class="info-item">
-                    <div class="icon-box">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </div>
-                    <div class="text-box">
-                        <h4>Địa chỉ cửa hàng</h4>
-                        <p>Phenikaa University, Hà Đông, Hà Nội</p>
-                    </div>
+    <div class="contact-container">
+        <!-- Thông Tin Liên Hệ -->
+        <div class="contact-box">
+            <h2>Thông Tin Liên Hệ</h2>
+            
+            <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div class="info-content">
+                    <h4>Địa Chỉ Cửa Hàng</h4>
+                    <p>Phenikaa University, Hà Đông, Hà Nội</p>
                 </div>
+            </div>
 
-                <div class="info-item">
-                    <div class="icon-box">
-                        <i class="fa-solid fa-phone"></i>
-                    </div>
-                    <div class="text-box">
-                        <h4>Hotline tư vấn</h4>
-                        <p><a href="tel:0934924180">0934.924.180</a></p>
-                    </div>
+            <div class="info-item">
+                <div class="info-icon">📞</div>
+                <div class="info-content">
+                    <h4>Hotline Tư Vấn</h4>
+                    <p><a href="tel:0934924180">0934.924.180</a></p>
                 </div>
+            </div>
 
-                <div class="info-item">
-                    <div class="icon-box">
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <div class="text-box">
-                        <h4>Email hỗ trợ</h4>
-                        <p><a href="mailto:support@sportsstore.com">support@sportsstore.com</a></p>
-                    </div>
+            <div class="info-item">
+                <div class="info-icon">✉️</div>
+                <div class="info-content">
+                    <h4>Email Hỗ Trợ</h4>
+                    <p><a href="mailto:support@sportsstore.com">support@sportsstore.com</a></p>
                 </div>
+            </div>
 
-                <div class="info-item">
-                    <div class="icon-box">
-                        <i class="fa-solid fa-clock"></i>
-                    </div>
-                    <div class="text-box">
-                        <h4>Giờ phục vụ</h4>
-                        <p>08:00 - 22:00 (Hàng ngày)</p>
-                    </div>
+            <div class="info-item">
+                <div class="info-icon">⏰</div>
+                <div class="info-content">
+                    <h4>Giờ Phục Vụ</h4>
+                    <p>08:00 - 22:00 (Hàng ngày)</p>
                 </div>
-
             </div>
         </div>
 
-        <!-- Cột 2: Form gửi phản hồi -->
-        <div class="form-card">
-            <h3 class="section-title">Gửi Phản Hồi</h3>
-            <form action="#" method="post">
+        <!-- Gửi Phản Hồi -->
+        <div class="contact-box">
+            <h2>Gửi Phản Hồi</h2>
+            <form>
                 <div class="form-group">
-                    <label for="fullname">Họ và tên</label>
-                    <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Nguyễn Văn A" required>
+                    <label>Họ và tên</label>
+                    <input type="text" class="form-control" placeholder="Nhập họ và tên của bạn...">
                 </div>
-                
+
                 <div class="form-group">
-                    <label for="email">Địa chỉ Email</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="24103498@st.phenikaa-uni.edu.vn" required>
+                    <label>Địa chỉ Email</label>
+                    <input type="email" class="form-control" placeholder="Nhập địa chỉ email...">
                 </div>
-                
+
                 <div class="form-group">
-                    <label for="message">Nội dung tin nhắn</label>
-                    <textarea id="message" name="message" rows="4" class="form-control" placeholder="Nhập lời nhắn của bạn tại đây..." required></textarea>
+                    <label>Nội dung tin nhắn</label>
+                    <textarea class="form-control" placeholder="Nhập lời nhắn của bạn tại đây..."></textarea>
                 </div>
-                
-                <button type="submit" class="btn-submit">
-                    <span>Gửi Tin Nhắn</span>
-                    <i class="fa-solid fa-paper-plane"></i>
-                </button>
+
+                <button type="submit" class="btn-submit">Gửi Tin Nhắn</button>
             </form>
         </div>
-
     </div>
-</div>
+
+    <footer>
+        <p>&copy; 2026 Sports Store. Đã đăng ký bản quyền. Dự án bài tập nhóm cao cấp.</p>
+    </footer>
+
+</body>
+</html>
